@@ -42,20 +42,6 @@ class Items
 
 end
 
-item1 = Items.new(
-                  name: "chair",
-                  cost: 5, 
-                  color: "brown",
-                  availability: true
-                  )
-
-item2 = Items.new(
-                  name: "table", 
-                  cost: 80000, 
-                  color: "red",
-                  availability: true
-                  )
-
 item3 = Items.new(
                   name: "blanket",
                   cost: 999, 
@@ -63,9 +49,31 @@ item3 = Items.new(
                   availability: false
                   )
 
+class Furniture < Items
+
+  attr_reader :wood
+  def initialize(input_options)
+    super
+    @wood = input_options[:wood]
+  end
+end
+
+item1 = Furniture.new(
+                  name: "chair",
+                  cost: 5, 
+                  color: "brown",
+                  availability: true,
+                  wood: false
+                  )
+
+item2 = Furniture.new(
+                  name: "table", 
+                  cost: 80000, 
+                  color: "red",
+                  availability: true,
+                  wood: true
+                  )
 
 p item1
-p item2
-item2.availability = false
 p item2
 p item3
