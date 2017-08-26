@@ -1,6 +1,6 @@
 class Vehicle
 
-  def initialize(input_options)
+  def initialize
     @speed = 0
     @direction = 'north'
   end
@@ -13,7 +13,6 @@ class Vehicle
     @speed += 10
   end
 
-
   def turn(new_direction)
     @direction = new_direction
   end
@@ -23,7 +22,7 @@ end
 class Car < Vehicle
 
   def initialize(input_options)
-    super
+    super()
     @mileage = input_options[:mileage]
     @make = input_options[:make]
     @model = input_options[:model]
@@ -35,8 +34,9 @@ class Car < Vehicle
 end
 
 class Bike < Vehicle
+
   def initalize(input_options)
-    super
+    super()
     @speed = input_options[:speed]
     @weight = input_options[:weight]
     @type = input_options[:type]
@@ -48,14 +48,19 @@ class Bike < Vehicle
 
 end
 
-bike = Bike.new({speed: 10000, make: "Nissan", model: "Sentra"})
-car = Car.new({speed: 10, weight: 5, type: "Mountain"})
+bike = Bike.new(
+                 speed: 10,
+                 type: "offroad", 
+                 weight: "27"
+                 )
 
-bike.honk_horn
-car.honk_horn
+car = Car.new(
+              mileage: 110, 
+              make: "Nissan", 
+              model: "Sentra"
+              )
 
-p bike
-bike.turn('North by North-West')
+p car
 p bike
 
 
